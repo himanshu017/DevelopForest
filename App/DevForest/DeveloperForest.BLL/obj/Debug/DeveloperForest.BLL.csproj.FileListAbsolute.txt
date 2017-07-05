@@ -1,0 +1,5 @@
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Debug\DeveloperForest.BLL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Debug\DeveloperForest.BLL.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\obj\Debug\DeveloperForest.BLL.csprojResolveAssemblyReference.cache
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\obj\Debug\DeveloperForest.BLL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\obj\Debug\DeveloperForest.BLL.pdb

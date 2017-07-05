@@ -1,0 +1,5 @@
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\bin\Debug\DeveloperForest.DAL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\bin\Debug\DeveloperForest.DAL.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\obj\Debug\DeveloperForest.DAL.csprojResolveAssemblyReference.cache
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\obj\Debug\DeveloperForest.DAL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\obj\Debug\DeveloperForest.DAL.pdb

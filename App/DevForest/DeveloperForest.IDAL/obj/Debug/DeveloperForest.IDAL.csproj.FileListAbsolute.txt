@@ -1,0 +1,5 @@
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.IDAL\bin\Debug\DeveloperForest.IDAL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.IDAL\bin\Debug\DeveloperForest.IDAL.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.IDAL\obj\Debug\DeveloperForest.IDAL.csprojResolveAssemblyReference.cache
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.IDAL\obj\Debug\DeveloperForest.IDAL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.IDAL\obj\Debug\DeveloperForest.IDAL.pdb
