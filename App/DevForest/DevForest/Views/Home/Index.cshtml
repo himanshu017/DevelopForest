@@ -1,31 +1,145 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/_Layout.cshtml";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="pageheader">
+    <h2><i class="fa fa-home"></i> Dashboard <span>Subtitle goes here...</span></h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li><a href="index.html">Bracket</a></li>
+            <li class="active">Dashboard</li>
+        </ol>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+<div class="contentpanel">
+
+    <div class="row">
+
+        <div class="col-sm-6 col-md-3">
+            <div class="panel panel-success panel-stat">
+                <div class="panel-heading">
+
+                    <div class="stat">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img src="~/images/is-user.png" alt="" />
+                            </div>
+                            <div class="col-xs-8">
+                                <small class="stat-label">Visits Today</small>
+                                <h1>900k+</h1>
+                            </div>
+                        </div><!-- row -->
+
+                        <div class="mb15"></div>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <small class="stat-label">Pages / Visit</small>
+                                <h4>7.80</h4>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <small class="stat-label">% New Visits</small>
+                                <h4>76.43%</h4>
+                            </div>
+                        </div><!-- row -->
+                    </div><!-- stat -->
+
+                </div><!-- panel-heading -->
+            </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+
+        <div class="col-sm-6 col-md-3">
+            <div class="panel panel-danger panel-stat">
+                <div class="panel-heading">
+
+                    <div class="stat">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img src="~/images/is-document.png" />
+                            </div>
+                            <div class="col-xs-8">
+                                <small class="stat-label">% Unique Visitors</small>
+                                <h1>54.40%</h1>
+                            </div>
+                        </div><!-- row -->
+
+                        <div class="mb15"></div>
+
+                        <small class="stat-label">Avg. Visit Duration</small>
+                        <h4>01:80:22</h4>
+
+                    </div><!-- stat -->
+
+                </div><!-- panel-heading -->
+            </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+
+        <div class="col-sm-6 col-md-3">
+            <div class="panel panel-primary panel-stat">
+                <div class="panel-heading">
+
+                    <div class="stat">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img src="~/images/is-document.png" alt="" />
+                            </div>
+                            <div class="col-xs-8">
+                                <small class="stat-label">Page Views</small>
+                                <h1>300k+</h1>
+                            </div>
+                        </div><!-- row -->
+
+                        <div class="mb15"></div>
+
+                        <small class="stat-label">% Bounce Rate</small>
+                        <h4>34.23%</h4>
+
+                    </div><!-- stat -->
+
+                </div><!-- panel-heading -->
+            </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+
+        <div class="col-sm-6 col-md-3">
+            <div class="panel panel-dark panel-stat">
+                <div class="panel-heading">
+
+                    <div class="stat">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <img src="~/images/is-money.png" alt="" />
+                            </div>
+                            <div class="col-xs-8">
+                                <small class="stat-label">Today's Earnings</small>
+                                <h1>$655</h1>
+                            </div>
+                        </div><!-- row -->
+
+                        <div class="mb15"></div>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <small class="stat-label">Last Week</small>
+                                <h4>$32,322</h4>
+                            </div>
+
+                            <div class="col-xs-6">
+                                <small class="stat-label">Last Month</small>
+                                <h4>$503,000</h4>
+                            </div>
+                        </div><!-- row -->
+
+                    </div><!-- stat -->
+
+                </div><!-- panel-heading -->
+            </div><!-- panel -->
+        </div><!-- col-sm-6 -->
+    </div><!-- row -->
+
+
+</div><!-- contentpanel -->

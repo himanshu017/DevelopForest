@@ -3,29 +3,23 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using DeveloperForest.BLL;
+using DeveloperForest;
+using System.Web.Security;
 
 namespace DevForest.Models
 {
     public class LoginHelper
     {
-        [Required]
-        public string Email { get; set; }
-        [Required]
-        public string Password { get; set; }
-
-        public int ID { get; set; }
-
-        [Required]
-        public string Name { get; set; }
-
-        [Required]
-        public string Address { get; set; }
-
-        [Required]
-        public string contact { get; set; }
-
-        [Required]
-        public string Gender { get; set; }
-
+       public string ValidateLogin(LoginModel model)
+        {
+            Login objBLL = new Login();
+            return objBLL.ValidateLogin(model.Email,model.Password);
+        }
+        public void SignOut()
+        {
+            FormsAuthentication.SignOut();
+            // HttpContext.Current.User = new GenericPrincipal(new GenericIdentity(string.Empty), null);
+        }
     }
 }

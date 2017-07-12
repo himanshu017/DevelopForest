@@ -141,12 +141,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Common\clsAuthentication.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginHelper.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -556,6 +558,7 @@
     <Content Include="Scripts\script\ng-table.min.js.map" />
     <Content Include="Scripts\script\version.json" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -574,6 +577,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeveloperForest.BLL\DeveloperForest.BLL.csproj">
+      <Project>{a8d6ab44-47b3-4f6f-8ae0-9264defdb774}</Project>
+      <Name>DeveloperForest.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DeveloperForest.Model\DeveloperForest.Model.csproj">
+      <Project>{537d95d2-f6cd-48fe-b1e5-2f05b63d4f24}</Project>
+      <Name>DeveloperForest.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

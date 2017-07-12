@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DeveloperForest.IDAL
 {
-    public class Class1
+    public interface ILoginDAL
     {
+        string ValidateLogin(string email, string password);
+        string ForgetPassword(string Email);
     }
 }

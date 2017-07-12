@@ -65,3 +65,14 @@ D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\bin\Microsof
 D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\obj\Debug\DevForest.csprojResolveAssemblyReference.cache
 D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\obj\Debug\DevForest.dll
 D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\obj\Debug\DevForest.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\bin\DeveloperForest.BLL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\bin\DeveloperForest.Model.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\bin\DeveloperForest.IDAL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\bin\DeveloperForest.DAL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\bin\ENCDEC.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\bin\DeveloperForest.BLL.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\bin\DeveloperForest.Model.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\bin\DeveloperForest.IDAL.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DevForest\bin\DeveloperForest.DAL.pdb

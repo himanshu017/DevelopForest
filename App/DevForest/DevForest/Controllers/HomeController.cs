@@ -8,9 +8,19 @@ namespace DevForest.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        [Authorize(Roles = "Admin")]
+        public ActionResult Dashboard()
         {
-            return View();
+            DevForest.Common.clsAuthentication objcls = new Common.clsAuthentication();
+            objcls.CheckAuthentication();
+            if (objcls.UserIsAuthenticated)
+            {
+                ViewBag.UserName = objcls.UserName;
+                return View();
+            }
+                
+            else
+                return RedirectToAction("Login","Login");
         }
 
         public ActionResult About()
