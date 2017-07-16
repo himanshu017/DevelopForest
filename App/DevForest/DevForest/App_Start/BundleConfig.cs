@@ -45,6 +45,16 @@ namespace DevForest
             bundles.Add(new StyleBundle("~/Content/theme").Include(
                    "~/Content/css/style.greyjoy.css"
                    ));
+
+            bundles.Add(new ScriptBundle("~/bundles/BootstrapTable").Include(
+                  "~/Scripts/bootstrap-table-all.js",
+                  "~/Scripts/bootstrap-table-export.js"
+                  ));
+
+            bundles.Add(new StyleBundle("~/Content/BootstarpTableCSS").Include(
+                  "~/Content/css/bootstrap-table.css"
+                  ));
+
         }
     }
 }

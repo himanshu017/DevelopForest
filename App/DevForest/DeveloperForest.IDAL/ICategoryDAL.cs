@@ -12,6 +12,7 @@ namespace DeveloperForest.IDAL
         int InsertCategory(CategoryModel model);
         int InsertSubCategory(CategoryModel model);
 
-        CategoryModel CategoryList();
+        List<CategoryModel> CategoryList();
+        int DeleteCategory(int CategoryID);
     }
 }

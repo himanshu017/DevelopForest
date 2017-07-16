@@ -1,5 +1,6 @@
 ﻿@model DevForest.Models.CategoryModel
 @{
+    ViewBag.Title = "Category";
     Layout = null;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -34,48 +35,254 @@
 </div>
 <div class="contentpanel">
     <div class="row">
+       
         <div class="col-md-12">
-            @*@if (ViewBag.msgVisible == true)
-                {
-                    <div id="divMsg" class="alert alert-@ViewBag.Class">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <strong>@ViewBag.Class</strong> @ViewBag.Message
-                    </div>
-                }*@
-            @using (Html.BeginForm("InsertCategory","Category"))
+           
+            @using (Ajax.BeginForm("InsertCategory", "Category", null, new AjaxOptions { HttpMethod = "post", OnSuccess = "Success", OnBegin = "ShowProgress" }, new { id = "formCategory" }))
             {
-            <div class="panel panel-dark ">
+                <div class="panel panel-dark ">
+                    <div class="panel-heading">
+                        <div class="panel-btns">
+                            <a class="panel-close" href="">×</a>
+                            <a class="minimize" href="">−</a>
+                        </div>
+                        <h4 class="panel-title">Category</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div id="divResponse" class="alert alert-dismissable hidden">
+                            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                            <span></span>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Category Name</label>
+                                    @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control", id = "txtCategoryName", placeholder = "Category Name" })
+                                    @Html.ValidationMessageFor(m => m.CategoryName)
+                                </div>
+                            </div><!-- col-sm-6 -->
+                        </div><!-- row -->
+                    </div><!-- panel-body -->
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3">
+                                @Html.HiddenFor(m => m.CategoryId, new { value = "0" })
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-dark">
                 <div class="panel-heading">
                     <div class="panel-btns">
                         <a class="panel-close" href="">×</a>
                         <a class="minimize" href="">−</a>
-                    </div>
-                    <h4 class="panel-title">Category</h4>
+                    </div><!-- panel-btns -->
+                    <h3 class="panel-title">View Users :: MVC</h3>
                 </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label class="control-label">Category Name</label>
-                                @*@Html.TextBoxFor(m => m.Name, new { @class = "form-control", id = "txtName", required = " required" })*@
-                                @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control", id = "txtCategoryName", placeholder = "Category Name" })
-                                @Html.ValidationMessageFor(m => m.CategoryName)
-                            </div>
-                        </div><!-- col-sm-6 -->
-                    </div><!-- row -->
-                </div><!-- panel-body -->
-                <div class="panel-footer">
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3">
-                            <button class="btn btn-primary" type="submit">Submit</button>
-                        </div>
-                    </div>
+                <div class="panel-body table-responsive">
+                    <table id="bsTable" data-toggle="table"
+                           data-toolbar="#toolbar"
+                           class="table table-hover table-striped"
+                           data-search="true"
+                           data-show-toggle="true"
+                           data-show-pagination-switch="true"
+                           data-pagination="true"
+                           data-page-size="10"
+                           data-page-list="[25, 50, 100, All]"
+                           data-side-pagination="server"
+                           data-smart-display="true"
+                           data-search-time-out="800"
+                           data-show-columns="true"
+                           data-method="post"
+                           data-url="@Url.Action("GetCategories", "Category")"
+                           data-content-type="application/json"
+                           data-data-type="json"
+                           data-response-handler="responseHandler"
+                           data-id-field="CategoryID"
+                           data-show-export="true">
+                        <thead>
+                            <tr>
+                                <th data-field="CategoryName" data-sortable="true">Category Name</th>
+                                <th data-field="operate" data-formatter="operateFormatter" data-events="operateEvents">Action(s)</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
-            }
         </div>
     </div>
 </div>
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModal-label" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="deleteModal-label">Delete User</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure want to delete this record?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <a class="btn btn-primary" id="deletebtn" href="javascript:void(0)" data-id="" onclick="DeleteCategory()" title="Remove">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function responseHandler(res) {
+        //$.each(res.rows, function (i, row) {
+        //    row.state = $.inArray(row.id, selections) !== -1;
+        //});
+        return res;
+    }
+    function operateFormatter(value, row, index) {
+        //alert(JSON.stringify(row));
+        console.log(JSON.stringify(row));
 
+        return [
+            '<a class="like btn btn-primary btn-xs" href="javascript:void(0);" title="Edit">',
+            '<i class="fa fa-pencil"></i>',
+            '</a>  ',
+            '  <a class="remove  btn btn-danger btn-xs" href="javascript:void(0)"  title="Remove">',
+            '<i class="glyphicon glyphicon-remove"></i>',
+            '</a>'
+        ].join('');
+    }
+    window.operateEvents = {
+            'click .like': function (e, value, row, index) {
+                $('#txtCategoryName').val(row.CategoryName);
+                $('#CategoryId').val(row.CategoryId);
+                //alert('You click like action, row: ' + JSON.stringify(row));
+            },
+            'click .remove': function (e, value, row, index) {
+                var cc = confirm("Are you sure you want to delete?");
+                if (cc) {
 
+                    $.post('@Url.Action("DeleteCategoryByID", "Category")', { CategoryID: row.CategoryId }, function (res) {
+                        if (res==1) {
+                            $('#bsTable').bootstrapTable('refresh');
+                            callMsg('alert-success', 'category has been deleted');
+                        }
+                    }, 'json');
+                }
+            }
+        };
+    function OpenDeleteModal(id) {
+        $('#deletebtn').attr('data-id', id);
+        $('#deleteModal').modal('show');
+    }
+    function DeleteCategory() {
+        var id = $('#deletebtn').attr('data-id');
+        $.ajax({
+            url: '',
+            type: "GET",
+            dataType: "JSON",
+            data: { ID: id },
+            success: function (response) {
+                $('#divResponse').toggleClass('hidden');
+                $('#divResponse').removeClass('alert-warning');
+                $('#divResponse').addClass('alert-success');
+                $('#divResponse span').html('Successfully deleted!!');
+                $('#tblUser').bootstrapTable('refresh', { silent: true });
+            }
+        });
+        $('#deleteModal').modal('hide');
+    }
+    function Success(res) {
+        if (res == "1") {
+            $('#formCategory')[0].reset();
+           
+            callMsg('alert-success', 'category has been added');
+            removeValidClass('#formCategory');
+            $('#CategoryId').val(0);
+            $('#bsTable').bootstrapTable('refresh');
+        }
+        else if (res == "2") {
+            $('#formCategory')[0].reset();
+            callMsg('alert-success', 'category has been updated');
+            removeValidClass('#formCategory');
+            $('#CategoryId').val(0);
+            $('#bsTable').bootstrapTable('refresh');
+        }
+        else if (res == "-1") {
+            $('#formCategory')[0].reset();
+            callMsg('alert-warning', 'Category already exists,Insert another');
+            removeValidClass('#formCategory');
+            $('#CategoryId').val(0);
+            $('#bsTable').bootstrapTable('refresh');
+        }
+        else {
+            callMsg('alert-warning', 'Some error occured');
+        }
+
+     
+        setTimeout(function () {
+            HideProgress();
+        }, 1000);
+    }
+    function removeValidClass(frm) {
+        $('' + frm + ' input').each(function () {
+            if ($(this).hasClass('valid')) {
+                $(this).removeClass('valid');
+            }
+        });
+
+        //$('' + frm + ' textarea').each(function () {
+        //    if ($(this).hasClass('valid')) {
+        //        $(this).removeClass('valid');
+        //    }
+        //});
+
+        //$('' + frm + ' select').each(function () {
+        //    if ($(this).hasClass('valid')) {
+        //        $(this).removeClass('valid');
+        //    }
+        //});
+    }
+
+    function reset() {
+        $('#formCategory')[0].reset();
+
+        $('#formCategory').validate().resetForm();
+
+        removeValidClass('#formCategory');
+    }
+    function ShowProgress() {
+        setTimeout(function () {
+            var loading = $("#preloader");
+            loading.show();
+            var top = Math.max($(window).height() / 2 - loading[0].offsetHeight / 2, 0);
+            var left = Math.max($(window).width() / 2 - loading[0].offsetWidth / 2, 0);
+            loading.css({ top: top, left: left });
+        }, 200);
+    }
+
+    function HideProgress() {
+        var loading = $("#preloader");
+        loading.css('display', 'none');
+        $('.modal-1').remove();
+    }
+
+    function callMsg(classname,msg) {
+        $('#divResponse').toggleClass('hidden');
+        $('#divResponse').addClass(classname);
+        $('#divResponse span').html(msg);
+
+        setTimeout(function () {
+            $('#divResponse').toggleClass('hidden');
+        }, 4000);
+    }
+</script>
+
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
 @Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/BootstrapTable");
+@Styles.Render("~/Content/BootstarpTableCSS");
+
