@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-
+using DeveloperForest.Model;
 namespace DevForest.Models
 {
-    public class LoginModel
+    public class LoginModel:Base
     {
         [Required]
         public string Email { get; set; }
