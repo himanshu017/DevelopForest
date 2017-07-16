@@ -1,0 +1,89 @@
+﻿@model DevForest.Models.CategoryModel
+
+@{
+    ViewBag.Title = "SubCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/jquery")
+<style>
+    .field-validation-error {
+        margin-top: 4px;
+        padding: 0;
+    }
+
+        .field-validation-error span {
+            padding: 0;
+            list-style: none;
+            color: #cc0000;
+        }
+
+    .input-validation-error {
+        border-color: #c00 !important;
+    }
+</style>
+
+<div class="pageheader">
+    <h2><i class="fa fa-home"></i> Input Fields <span>Subtitle goes here...</span></h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li><a href="#">Bracket</a></li>
+            <li class="active">Input Fields</li>
+        </ol>
+    </div>
+</div>
+<div class="contentpanel">
+    <div class="row">
+        <div class="col-md-12">
+            @*@if (ViewBag.msgVisible == true)
+                {
+                    <div id="divMsg" class="alert alert-@ViewBag.Class">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>@ViewBag.Class</strong> @ViewBag.Message
+                    </div>
+                }*@
+            @using (Html.BeginForm("InsertSubCategory", "Category"))
+            {
+                <div class="panel panel-dark ">
+                    <div class="panel-heading">
+                        <div class="panel-btns">
+                            <a class="panel-close" href="">×</a>
+                            <a class="minimize" href="">−</a>
+                        </div>
+                        <h4 class="panel-title">Add SubCategory</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Select Category</label>
+                                    @*@Html.TextBoxFor(m => m.Name, new { @class = "form-control", id = "txtName", required = " required" })*@
+                                    @Html.TextBoxFor(m => m.SubCategoryName, new { @class = "form-control", id = "ddlCategoryId", placeholder = "SubCategory Name" })
+                                    @Html.ValidationMessageFor(m => m.CategoryId)
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">SubCategory Name</label>
+                                    @*@Html.TextBoxFor(m => m.Name, new { @class = "form-control", id = "txtName", required = " required" })*@
+                                    @Html.TextBoxFor(m => m.SubCategoryName, new { @class = "form-control", id = "txtSubCategoryName", placeholder = "SubCategory Name" })
+                                    @Html.ValidationMessageFor(m => m.SubCategoryName)
+                                </div>
+                            </div><!-- col-sm-6 -->
+                        </div><!-- row -->
+                    </div><!-- panel-body -->
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-sm-6 col-sm-offset-3">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/bundles/jqueryval")

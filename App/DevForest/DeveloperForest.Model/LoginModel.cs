@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeveloperForest.Model
 {
-    class LoginModel
+    class LoginModel : Base
     {
         public string Email { get; set; }
 
