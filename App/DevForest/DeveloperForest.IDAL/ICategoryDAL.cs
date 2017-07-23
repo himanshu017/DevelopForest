@@ -14,5 +14,8 @@ namespace DeveloperForest.IDAL
 
         List<CategoryModel> CategoryList();
         int DeleteCategory(int CategoryID);
+        List<CategoryModel> SubCategoryList();
+
+        int DeleteSubCategory(int SubCategory);
     }
 }
