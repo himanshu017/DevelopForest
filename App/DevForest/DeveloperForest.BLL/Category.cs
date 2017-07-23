@@ -17,11 +17,6 @@ namespace DeveloperForest.BLL
             return obj.InsertCategory(model);
         }
 
-        public int InsertSubCategory(CategoryModel model)
-        {
-            ICategoryDAL obj = new CategoryDAL();
-            return obj.InsertSubCategory(model);
-        }
 
         public List<CategoryModel> GetCategories()
         {
@@ -32,6 +27,22 @@ namespace DeveloperForest.BLL
         {
             ICategoryDAL obj = new CategoryDAL();
             return obj.DeleteCategory(CategoryID);
+        }
+
+        public int InsertSubCategory(CategoryModel model)
+        {
+            ICategoryDAL obj = new CategoryDAL();
+            return obj.InsertSubCategory(model);
+        }
+        public List<CategoryModel> GetSubCategories()
+        {
+            ICategoryDAL obj = new CategoryDAL();
+            return obj.SubCategoryList();
+        }
+        public int DeleteSubCategory(int SubCategoryID)
+        {
+            ICategoryDAL obj = new CategoryDAL();
+            return obj.DeleteSubCategory(SubCategoryID);
         }
     }
 }
