@@ -42,14 +42,15 @@ namespace DeveloperForest.DAL
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("sp_MasterSubCategory", con);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@SubCategoryName", model.CategoryName);
-                cmd.Parameters.AddWithValue("@CategoryID", model.CreatedBy);
-                cmd.Parameters.AddWithValue("@CreatedBy", model.ModifiedBy);
-                cmd.Parameters.AddWithValue("@ModifiedBy", model.ModifiedBy);
+                Database db = new SqlDatabase(config);
+                DbCommand dbCommand = db.GetStoredProcCommand("sp_MasterSubCategory");
+                db.AddInParameter(dbCommand, "SubCategoryId", DbType.String, model.SubCategoryId);
+                db.AddInParameter(dbCommand, "SubCategoryName", DbType.String, model.SubCategoryName);
+                db.AddInParameter(dbCommand, "CategoryID", DbType.String, model.CategoryId);
+                db.AddInParameter(dbCommand, "CreatedBy", DbType.String, model.CreatedBy);
+                db.AddInParameter(dbCommand, "ModifiedBy", DbType.String, model.ModifiedBy);
                 con.Open();
-                return cmd.ExecuteNonQuery();
+                return db.ExecuteNonQuery(dbCommand);
             }
             finally
             {
@@ -79,6 +80,28 @@ namespace DeveloperForest.DAL
             db.AddInParameter(dbCommand, "CategoryId", DbType.String, CategoryID);
             return db.ExecuteNonQuery(dbCommand);
            
+        }
+        public List<CategoryModel> SubCategoryList()
+        {
+            Database db = new SqlDatabase(config);
+            DbCommand dbCommand = db.GetSqlStringCommand(SQLBase.SQL_GET_SubCategories);
+            DataTable dt = db.ExecuteDataSet(dbCommand).Tables[0];
+            List<CategoryModel> SubCategoryList = dt.AsEnumerable().Select(row => new CategoryModel
+            {
+                SubCategoryId = (Int32)row["SubCategoryID"],
+                SubCategoryName = String.IsNullOrEmpty(row.Field<string>("SubCategoryName")) ? "not found" : row.Field<string>("SubCategoryName"),
+                CategoryId = (Int32)row["CategoryId"],
+                CategoryName = String.IsNullOrEmpty(row.Field<string>("CategoryName")) ? "not found" : row.Field<string>("CategoryName")
+            }).ToList();
+            return SubCategoryList;
+        }
+
+        public int DeleteSubCategory(int SubCategoryId)
+        {
+            Database db = new SqlDatabase(config);
+            DbCommand dbCommand = db.GetSqlStringCommand(SQLBase.SQL_DeleteSubCategoriesById);
+            db.AddInParameter(dbCommand, "SubCategoryId", DbType.String, SubCategoryId);
+            return db.ExecuteNonQuery(dbCommand);
         }
 
     }
