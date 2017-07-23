@@ -35,9 +35,9 @@
 </div>
 <div class="contentpanel">
     <div class="row">
-       
+
         <div class="col-md-12">
-           
+
             @using (Ajax.BeginForm("InsertCategory", "Category", null, new AjaxOptions { HttpMethod = "post", OnSuccess = "Success", OnBegin = "ShowProgress" }, new { id = "formCategory" }))
             {
                 <div class="panel panel-dark ">
@@ -83,7 +83,7 @@
                         <a class="panel-close" href="">×</a>
                         <a class="minimize" href="">−</a>
                     </div><!-- panel-btns -->
-                    <h3 class="panel-title">View Users :: MVC</h3>
+                    <h3 class="panel-title">Category List</h3>
                 </div>
                 <div class="panel-body table-responsive">
                     <table id="bsTable" data-toggle="table"
@@ -156,24 +156,24 @@
         ].join('');
     }
     window.operateEvents = {
-            'click .like': function (e, value, row, index) {
-                $('#txtCategoryName').val(row.CategoryName);
-                $('#CategoryId').val(row.CategoryId);
-                //alert('You click like action, row: ' + JSON.stringify(row));
-            },
-            'click .remove': function (e, value, row, index) {
-                var cc = confirm("Are you sure you want to delete?");
-                if (cc) {
+        'click .like': function (e, value, row, index) {
+            $('#txtCategoryName').val(row.CategoryName);
+            $('#CategoryId').val(row.CategoryId);
+            //alert('You click like action, row: ' + JSON.stringify(row));
+        },
+        'click .remove': function (e, value, row, index) {
+            var cc = confirm("Are you sure you want to delete?");
+            if (cc) {
 
-                    $.post('@Url.Action("DeleteCategoryByID", "Category")', { CategoryID: row.CategoryId }, function (res) {
-                        if (res==1) {
-                            $('#bsTable').bootstrapTable('refresh');
-                            callMsg('alert-success', 'category has been deleted');
-                        }
-                    }, 'json');
-                }
+                $.post('@Url.Action("DeleteCategoryByID", "Category")', { CategoryID: row.CategoryId }, function (res) {
+                    if (res == 1) {
+                        $('#bsTable').bootstrapTable('refresh');
+                        callMsg('alert-success', 'category has been deleted');
+                    }
+                }, 'json');
             }
-        };
+        }
+    };
     function OpenDeleteModal(id) {
         $('#deletebtn').attr('data-id', id);
         $('#deleteModal').modal('show');
@@ -198,7 +198,7 @@
     function Success(res) {
         if (res == "1") {
             $('#formCategory')[0].reset();
-           
+
             callMsg('alert-success', 'category has been added');
             removeValidClass('#formCategory');
             $('#CategoryId').val(0);
@@ -222,7 +222,7 @@
             callMsg('alert-warning', 'Some error occured');
         }
 
-     
+
         setTimeout(function () {
             HideProgress();
         }, 1000);
@@ -270,7 +270,7 @@
         $('.modal-1').remove();
     }
 
-    function callMsg(classname,msg) {
+    function callMsg(classname, msg) {
         $('#divResponse').toggleClass('hidden');
         $('#divResponse').addClass(classname);
         $('#divResponse span').html(msg);
