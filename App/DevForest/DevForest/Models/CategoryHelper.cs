@@ -43,5 +43,15 @@ namespace DevForest.Models
             Category objBll = new Category();
             return objBll.DeleteCategory(CategoryID);
         }
+        public List<DeveloperForest.Model.CategoryModel> GetSubCategories()
+        {
+            Category objBll = new Category();
+            return objBll.GetSubCategories();
+        }
+        public int DeleteSubCategoryByID(int SubCategoryID)
+        {
+            Category objBll = new Category();
+            return objBll.DeleteSubCategory(SubCategoryID);
+        }
     }
 }
