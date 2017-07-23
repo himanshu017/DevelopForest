@@ -1,0 +1,237 @@
+﻿@model DevForest.Models.ThemeModel
+@{
+    ViewBag.Title = "Theme";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/jquery")
+<style>
+    .field-validation-error {
+        margin-top: 4px;
+        padding: 0;
+    }
+
+        .field-validation-error span {
+            padding: 0;
+            list-style: none;
+            color: #cc0000;
+        }
+
+    .input-validation-error {
+        border-color: #c00 !important;
+    }
+</style>
+
+<div class="pageheader">
+    <h2>
+        <i class="fa fa-home"></i> Input Fields
+        <span>Subtitle goes here...</span>
+    </h2>
+    <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+            <li><a href="#">Bracket</a></li>
+            <li class="active">Input Fields</li>
+        </ol>
+    </div>
+</div>
+<div class="contentpanel">
+    <div class="row">
+
+        <div class="col-md-12">
+
+            @using (@Html.BeginForm("InsertTheme", "Theme", FormMethod.Post, new { id = "form", @enctype = "multipart/form-data" }))
+            {
+                @*@using (Ajax.BeginForm("InsertTheme", "Theme", null, new AjaxOptions { HttpMethod = "post", OnSuccess = "Success", OnBegin = "ShowProgress" }, new { id = "formCategory", enctype = "multipart/form-data" }))
+                    {*@
+                <div class="panel panel-dark ">
+                    <div class="panel-heading">
+                        <div class="panel-btns">
+                            <a class="panel-close" href="">×</a>
+                            <a class="minimize" href="">−</a>
+                        </div>
+                        <h4 class="panel-title">Theme</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div id="divResponse" class="alert alert-dismissable hidden">
+                            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                            <span></span>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Category Name</label>
+                                                    @Html.DropDownListFor(m => m.CategoryId, Model.CategoryList, "-- Select Category --", new { @class = "form-control", id = "ddlCategory", onchange = "GetSubCategoryList(this)" })
+                                                    @Html.ValidationMessageFor(m => m.CategoryId)
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">SubCategory Name</label>
+                                                    @Html.DropDownListFor(m => m.SubCategoryId, new SelectList(Enumerable.Empty<SelectListItem>(), "Value", "Text"), "-- Select SubCategory --", new { @class = "form-control", id = "ddlSubCategory" })
+
+                                                    @Html.ValidationMessageFor(m => m.SubCategoryId)
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                        </div><!-- row -->
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Title</label>
+                                                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control", id = "txtTitle", placeholder = "Title Name" })
+                                                    @Html.ValidationMessageFor(m => m.Title)
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Thumbnail Image</label>
+                                                    @Html.TextBoxFor(m => m.ImageName, new { @class = "form-control", type = "file", id = "txtThumbnailImage" })
+                                                    @Html.ValidationMessageFor(m => m.ImageName)
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                        </div><!-- row -->
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Image</label>
+                                                    @Html.TextBoxFor(m => m.ThumbImageName, new { @class = "form-control", type = "file", id = "txtImage" })
+                                                    @Html.ValidationMessageFor(m => m.ImageName)
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Download Link</label>
+                                                    @Html.TextBoxFor(m => m.Downloadlink, new { @class = "form-control", id = "txtDownloadLink", placeholder = "Download Link" })
+                                                    @Html.ValidationMessageFor(m => m.Downloadlink)
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">DemoLink</label>
+                                                    @Html.TextBoxFor(m => m.DemoLink, new { @class = "form-control", id = "txtDemoLink", placeholder = "DemoLink" })
+                                                    @Html.ValidationMessageFor(m => m.DemoLink)
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">Description</label>
+                                                    @Html.TextAreaFor(m => m.Description, new { @class = "form-control", id = "txtDescription", placeholder = "Description" })
+                                                    @Html.ValidationMessageFor(m => m.Description)
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                        </div>
+                                    </div><!-- panel-body -->
+                                    <div class="panel-footer">
+                                        @Html.HiddenFor(m => m.ThemeId, new { value = "0" })
+                                        <button class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- row -->
+                    </div><!-- panel-body -->
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    function GetSubCategoryList(ctrl,idx) {
+        var CategoryId = $('#ddlCategory').val();
+
+        if (CategoryId != 0) {
+            $.ajax({
+                type: "post",
+                contentType: "application/json; charset=utf-8",
+                url: "/Theme/GetSubCategories",
+                data: "{'id':'" + CategoryId + "'}",
+                success: function (data) {
+                    $('#ddlSubCategory option').not(':first').remove();
+                    $.each(data, function (index, item) {
+                        $('#ddlSubCategory').append('<option value="' + item.SubCategoryId + '">' + item.SubCategoryName + '</option>');
+                    });
+                    $('#ddlSubCategory').val(idx);
+                    //$('#ddlSubCategory option').each(function () {
+                       
+                    //    if ($(this).val() == idx) {
+                    //        $(this).attr('selected', 'selected');
+                    //    }
+                    //})
+                },
+                error: function (data) {
+                    alert("error")
+                }
+            })
+        }
+        else {
+            $('#ddlSubCategory option').not(':first').remove();
+        }
+    }
+
+    function ShowProgress() {
+        setTimeout(function () {
+            var loading = $("#preloader");
+            loading.show();
+            var top = Math.max($(window).height() / 2 - loading[0].offsetHeight / 2, 0);
+            var left = Math.max($(window).width() / 2 - loading[0].offsetWidth / 2, 0);
+            loading.css({ top: top, left: left });
+        }, 200);
+    }
+    function HideProgress() {
+        var loading = $("#preloader");
+        loading.css('display', 'none');
+        $('.modal-1').remove();
+    }
+
+    $(document).ready(function () {
+        if (window.location.search.length > 0) {
+            var ThemeId = window.location.search.split("=")[1];
+            $.ajax({
+                type: "post",
+                contentType: "application/json; charset=utf-8",
+                url: "/Theme/GetThemeById",
+                data: "{'ThemeId':'" + ThemeId + "'}",
+                success: function (data) {
+                    $('#ddlCategory').val(data.CategoryId);
+                    $('#txtTitle').val(data.Title);
+                    $('#txtDownloadLink').val(data.Downloadlink);
+                    $('#txtDemoLink').val(data.DemoLink);
+                    $('#txtDescription').val(data.Description);
+                    $('#ThemeId').val(ThemeId);
+                    //$('#txtThumbnailImage').val(data.ImageName);
+                    //$('#txtImage').val(data.ImageName);
+                    GetSubCategoryList("",data.SubCategoryId);
+                    
+                   
+                },
+                error: function (data) {
+                    alert("error")
+                }
+            })
+        }
+    })
+    @*$("#UnitManager option").each(function () {
+        if ($(this).val() == '@Model.UnitManager') {
+            $(this).attr('selected', 'selected');
+        }
+    });*@
+</script>
+
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")"></script>
+@Scripts.Render("~/bundles/jqueryval")
+@Scripts.Render("~/bundles/BootstrapTable");
+@Styles.Render("~/Content/BootstarpTableCSS");
+
+
+
