@@ -149,12 +149,12 @@
 
     function GetSubCategoryList(ctrl,idx) {
         var CategoryId = $('#ddlCategory').val();
-
+        var url = "@Url.Action("GetSubCategories", "Theme")"
         if (CategoryId != 0) {
             $.ajax({
                 type: "post",
                 contentType: "application/json; charset=utf-8",
-                url: "/Theme/GetSubCategories",
+                url:url,
                 data: "{'id':'" + CategoryId + "'}",
                 success: function (data) {
                     $('#ddlSubCategory option').not(':first').remove();
@@ -163,7 +163,7 @@
                     });
                     $('#ddlSubCategory').val(idx);
                     //$('#ddlSubCategory option').each(function () {
-                       
+
                     //    if ($(this).val() == idx) {
                     //        $(this).attr('selected', 'selected');
                     //    }
@@ -197,10 +197,11 @@
     $(document).ready(function () {
         if (window.location.search.length > 0) {
             var ThemeId = window.location.search.split("=")[1];
+            var url = "@Url.Action("GetThemeById", "Theme")"
             $.ajax({
                 type: "post",
                 contentType: "application/json; charset=utf-8",
-                url: "/Theme/GetThemeById",
+                url: url,
                 data: "{'ThemeId':'" + ThemeId + "'}",
                 success: function (data) {
                     $('#ddlCategory').val(data.CategoryId);
@@ -212,8 +213,8 @@
                     //$('#txtThumbnailImage').val(data.ImageName);
                     //$('#txtImage').val(data.ImageName);
                     GetSubCategoryList("",data.SubCategoryId);
-                    
-                   
+
+
                 },
                 error: function (data) {
                     alert("error")

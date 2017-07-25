@@ -14,6 +14,7 @@ namespace DevForest.Controllers
         // GET: Login
         public ActionResult Login()
         {
+            ViewBag.Status = "success";
             return View();
         }
         [AllowAnonymous]
@@ -37,6 +38,7 @@ namespace DevForest.Controllers
             }
             else
             {
+                ViewBag.Status = "Invalid Username or Password";
                 return View("Login");
             }
         }
