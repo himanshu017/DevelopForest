@@ -1,0 +1,13 @@
+﻿@model DeveloperForest.Model.CategoryModel
+
+<div class="subnav__boxcon" data-parent="@Model.CategoryId" id="@Model.CategoryName" style="display: block;">
+    <ul class="subnav__box">
+        @for (int i = 0; i < Model.ModelList.Count; i++)
+        {
+            <li class="subnav__list hoverdropdownlik">
+                <a class="subnav__link" href="javascript:void(0)">@Model.ModelList[i].SubCategoryName</a>
+            </li>
+        }
+    </ul>
+</div>
+

@@ -15,5 +15,11 @@ namespace DeveloperForest.Model
         public int SubCategoryId { get; set; }
 
         public string SubCategoryName { get; set; }
-    }
+
+        public string CSSClass { get; set; }
+
+        public Int16 CurrentIndex { get; set; }
+
+        public List<CategoryModel> ModelList{ get; set; }
+}
 }

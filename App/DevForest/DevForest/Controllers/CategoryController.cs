@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DevForest.Models;
-
+using System.Web.Script.Serialization;
 namespace DevForest.Controllers
 {
     public class CategoryController : Controller
@@ -86,7 +86,7 @@ namespace DevForest.Controllers
                     }
                     else
                     {
-                        li2 = li.OrderBy(x => x.CategoryName).Skip(offset).Take(limit == 0 ? count : limit).ToList();
+                        li2 = li.Skip(offset).Take(limit == 0 ? count : limit).ToList();
                     }
 
                     return Json(new { total = count, rows = li2 });
@@ -153,6 +153,21 @@ namespace DevForest.Controllers
             CategoryHelper obj = new CategoryHelper();
 
             int res = obj.DeleteSubCategoryByID(SubCategoryID);
+
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public JsonResult UpdateCategoryIndex(string list)
+        {
+            DeveloperForest.BLL.Category obj = new DeveloperForest.BLL.Category();
+
+            JavaScriptSerializer jss = new JavaScriptSerializer();
+
+            List<DeveloperForest.Model.CategoryModel> data = jss.Deserialize < List<DeveloperForest.Model.CategoryModel>>(list);
+
+            bool res = obj.UpdateCategoryIndex(data);
 
             return Json(res, JsonRequestBehavior.AllowGet);
         }

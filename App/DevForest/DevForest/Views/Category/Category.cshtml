@@ -61,7 +61,16 @@
                                     @Html.ValidationMessageFor(m => m.CategoryName)
                                 </div>
                             </div><!-- col-sm-6 -->
-                        </div><!-- row -->
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Category Name</label>
+                                    @Html.TextBoxFor(m => m.CSSClass, new { @class = "form-control", id = "txtCSSClass", placeholder = "css" })
+                                </div>
+                            </div><!-- col-sm-6 -->
+                        </div>
+                    <!-- row -->
                     </div><!-- panel-body -->
                     <div class="panel-footer">
                         <div class="row">
@@ -105,10 +114,12 @@
                            data-data-type="json"
                            data-response-handler="responseHandler"
                            data-id-field="CategoryID"
+                           data-reorderable-rows="true"
+                           data-use-row-attr-func="true"
                            data-show-export="true">
                         <thead>
                             <tr>
-                                <th data-field="CategoryName" data-sortable="true">Category Name</th>
+                                <th data-field="CategoryName" data-sortable="false">Category Name</th>
                                 <th data-field="operate" data-formatter="operateFormatter" data-events="operateEvents">Action(s)</th>
                             </tr>
                         </thead>
@@ -136,6 +147,7 @@
     </div>
 </div>
 <script>
+    var UpdateIndexPath="@Url.Action("UpdateCategoryIndex", "Category")";
     function responseHandler(res) {
         //$.each(res.rows, function (i, row) {
         //    row.state = $.inArray(row.id, selections) !== -1;
@@ -286,3 +298,6 @@
 @Scripts.Render("~/bundles/BootstrapTable");
 @Styles.Render("~/Content/BootstarpTableCSS");
 
+<script src="~/Scripts/jquery.tablednd.js"></script>
+<script src="~/Scripts/bootstrap-table-reorder-rows.js"></script>
+<link href="~/Content/css/bootstrap-table-reorder-rows.css" rel="stylesheet" />

@@ -44,5 +44,25 @@ namespace DeveloperForest.BLL
             ICategoryDAL obj = new CategoryDAL();
             return obj.DeleteSubCategory(SubCategoryID);
         }
+
+        public bool UpdateCategoryIndex(List<CategoryModel> list)
+        {
+            IDAL.ICategoryDAL obj = new CategoryDAL();
+            for (Int16 i = 0; i < list.Count; i++)
+            {
+                int j = i;
+                CategoryModel model = new CategoryModel();
+                model.CategoryId = list[i].CategoryId;
+                model.CurrentIndex = Convert.ToInt16(j + 1);
+                obj.UpdateCategoryIndex(model);
+            }
+            return true;
+        }
+
+        public void UpdateThemeTrends(bool IsTrending, int ThemeID)
+        {
+            ICategoryDAL obj = new CategoryDAL();
+            obj.UpdateThemeTrends(IsTrending, ThemeID);
+        }
     }
 }

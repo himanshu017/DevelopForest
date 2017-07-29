@@ -17,5 +17,8 @@ namespace DeveloperForest.IDAL
         List<CategoryModel> SubCategoryList();
 
         int DeleteSubCategory(int SubCategory);
+
+        bool UpdateCategoryIndex(CategoryModel list);
+        void UpdateThemeTrends(bool IsTrending, int ThemeID);
     }
 }

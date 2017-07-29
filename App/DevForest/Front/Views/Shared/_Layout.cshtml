@@ -1,42 +1,112 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title developer forest</title>
+    <meta name="description" content="developer forest">
+    <meta name="keywords" content="template, clean, responsive, one-page, creative, vc">
+    <meta name="author" content="developer forest">
+    @Styles.Render("~/bundles/assetsCss")
+    <script src="~/assets/js/core/jquery.3.2.1.min.js"></script>
+    @Scripts.Render("~/bundles/assetsJs")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+    <div class="maincon">
+        <div class="topsection">
+            <div class="parallax-background bannerbox__image"></div>
+            <header class="header transition">
+                <div class="container">
+                    <div class="header__container  flex items-center">
+                        <a class="header__left navbar-brand narrow" href="#"><img src="~/assets/img/logo.png" alt=""></a>
+                        <div class="header__right">
+
+                        </div>
+                    </div>
+                </div>
+            </header>
         </div>
-    </div>
-    <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer class="footer">
+            <div class="container">
+                <div class="toplink">
+                    <a href="javascript:void(0)" class="toplink__item">About us</a>
+                    <a href="javascript:void(0)" class="toplink__item">Careers  </a>
+                    <a href="javascript:void(0)" class="toplink__item">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="toplink__item">Terms & condition</a>
+                    <a href="javascript:void(0)" class="toplink__item">help</a>
+                    <a href="javascript:void(0)" class="toplink__item">blog</a>
+                    <a href="javascript:void(0)" class="toplink__item">forurms</a>
+                    <a href="javascript:void(0)" class="toplink__item">Community</a>
+                    <a href="javascript:void(0)" class="toplink__item">contact us</a>
+                </div>
+                <div class="midfooter">
+                    <div class="midfooter__box">
+                        <div class="midfooter__hd">Most Popular Themes</div>
+                        <div class="clearfix"></div>
+                        <a href="javascript:void(0)" class="midfooterlink">HTML</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Wordpress</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Joomla</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Wordpress</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Admin & Dashboard</a>
+                        <a href="javascript:void(0)" class="midfooterlink">One page Template</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Email Template</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Bootstrap template</a>
+                        <a href="javascript:void(0)" class="midfooterlink">eCommerce Template</a>
+
+                    </div>
+
+                    <div class="midfooter__box">
+                        <div class="midfooter__hd">Most Popular Plugins</div>
+                        <div class="clearfix"></div>
+                        <a href="javascript:void(0)" class="midfooterlink">Jquery Plugin</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Wordpress Plugin</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Joomla Plugin</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Woocommerce Plugin</a>
+                        <a href="javascript:void(0)" class="midfooterlink">CSS Plugin</a>
+                        <a href="javascript:void(0)" class="midfooterlink">SVG</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Canvas</a>
+
+                    </div>
+                    <div class="midfooter__box">
+                        <div class="midfooter__hd">Most Popular UI Kit</div>
+                        <div class="clearfix"></div>
+                        <a href="javascript:void(0)" class="midfooterlink">Bootstrap </a>
+                        <a href="javascript:void(0)" class="midfooterlink">Foundation</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Oters CSS framework</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Responsive</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Parallex</a>
+
+                    </div>
+                    <div class="midfooter__box">
+                        <div class="midfooter__hd">Graphics</div>
+                        <div class="clearfix"></div>
+                        <a href="javascript:void(0)" class="midfooterlink">Generate fonts</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Convert fonts <br> to icons</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Download Icons</a>
+                        <a href="javascript:void(0)" class="midfooterlink">Download Fonts</a>
+                        <a href="javascript:void(0)" class="midfooterlink">craete logo </a>
+
+                    </div>
+                </div>
+                <div class="bottomfooter">
+                    <div class="copyright">
+                        &copy; 2017 developer forest Pvt Ltd. Trademarks and brands are the property of their respective owners.
+                    </div>
+                    <div class="socialicons">
+                        <a href="#" class="socialicons__llink"><i class="df df-facebook2"></i></a>
+                        <a href="#" class="socialicons__llink"><i class="df df-linkedin2"></i></a>
+                        <a href="#" class="socialicons__llink"><i class="df  df-twitter2"></i></a>
+                        <a href="#" class="socialicons__llink"><i class="df df-googlebase2"></i></a>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
+  
+
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>

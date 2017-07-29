@@ -76,6 +76,7 @@
                                 <th data-field="Title" data-sortable="true">Title</th>
                                 <th data-field="CategoryName" data-sortable="true">Category</th>
                                 <th data-field="SubCategoryName" data-sortable="true">SubCategory</th>
+                                <th data-field="operate" data-formatter="ActionFormatter" data-events="operateEvents">IsTrending</th>
                                 <th data-field="operate" data-formatter="operateFormatter" data-events="operateEvents">Action(s)</th>
                             </tr>
                         </thead>
@@ -87,11 +88,30 @@
 </div>
 
 <script>
+    function updatetrend(ctrl, idx) {
+        var IsTrend = false;
+        if ($(ctrl).is(':checked')) {
+            IsTrend = true;
+        }
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url: '@Url.Action("UpdateThemeTrends", "Theme")',
+            data: { IsTrend: IsTrend, ThemeID: idx },
+            success: function (data) {
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve books.');
+            }
+        });
+    }
     function responseHandler(res) {
-        //$.each(res.rows, function (i, row) {
-        //    row.state = $.inArray(row.id, selections) !== -1;
-        //});
         return res;
+    }
+    function ActionFormatter(value, row, index) {
+        return [
+            '<input  name="IsTrend" class="IsTrend" onchange=updatetrend(this,'+row.ThemeId+') data-id=' + row.ThemeId +' type="checkbox">'
+        ].join('');
     }
     function operateFormatter(value, row, index) {
         //alert(JSON.stringify(row));

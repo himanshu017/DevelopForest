@@ -26,6 +26,13 @@ namespace Front
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/assetsCss").Include(
+                      "~/assets/css/developerforest.css",
+                      "~/assets/css/icons.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/assetsJs").Include(
+                    "~/assets/js/developerforest.js"));
         }
     }
 }

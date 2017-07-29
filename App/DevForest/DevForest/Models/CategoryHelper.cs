@@ -16,6 +16,7 @@ namespace DevForest.Models
             ob.CategoryId = model.CategoryId;
             ob.CreatedBy = model.CreatedBy;
             ob.ModifiedBy = model.ModifiedBy;
+            ob.CSSClass = model.CSSClass;
             Category objBll = new Category();
             return objBll.InsertCategory(ob);
         }

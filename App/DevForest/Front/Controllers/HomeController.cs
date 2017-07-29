@@ -5,29 +5,26 @@ using System.Web;
 using System.Web.Mvc;
 using DeveloperForest.BLL;
 using DeveloperForest.Model;
+using Front.Models;
 namespace Front.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(Header model)
         {
             Category objbll = new Category();
           List<CategoryModel> ob = objbll.GetCategories();
-            return View();
+            model.MainCategories = ob;
+            return View(model);
         }
-
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult GETSubCategoriesMenu(int categoryid)
         {
-            ViewBag.Message = "Your application description page.";
+            Header obj = new Header();
+            DeveloperForest.Model.CategoryModel model = new DeveloperForest.Model.CategoryModel();
+           model= obj.SubCategoriesByID(categoryid);
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return PartialView(@"~/Views/Shared/_SubCategories.cshtml", model);
         }
     }
 }

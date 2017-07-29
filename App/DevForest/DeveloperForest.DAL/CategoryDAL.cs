@@ -29,6 +29,7 @@ namespace DeveloperForest.DAL
                 cmd.Parameters.AddWithValue("@CategoryName", model.CategoryName);
                 cmd.Parameters.AddWithValue("@CreatedBy", model.CreatedBy);
                 cmd.Parameters.AddWithValue("@ModifiedBy", model.ModifiedBy);
+                cmd.Parameters.AddWithValue("@CSSClass", model.CSSClass);
                 con.Open();
                 return Convert.ToInt32(cmd.ExecuteScalar());
             }
@@ -66,8 +67,8 @@ namespace DeveloperForest.DAL
             List<CategoryModel> target = dt.AsEnumerable().Select(row => new CategoryModel
             {
                 CategoryId = (Int32)row["CategoryId"],
-                CategoryName = String.IsNullOrEmpty(row.Field<string>("CategoryName")) ? "not found" : row.Field<string>("CategoryName")
-                
+                CategoryName = String.IsNullOrEmpty(row.Field<string>("CategoryName")) ? "not found" : row.Field<string>("CategoryName"),
+                CSSClass= String.IsNullOrEmpty(row.Field<string>("CSSClass")) ? "" : row.Field<string>("CSSClass")
             }).ToList();
             return target;
         }
@@ -102,6 +103,32 @@ namespace DeveloperForest.DAL
             DbCommand dbCommand = db.GetSqlStringCommand(SQLBase.SQL_DeleteSubCategoriesById);
             db.AddInParameter(dbCommand, "SubCategoryId", DbType.String, SubCategoryId);
             return db.ExecuteNonQuery(dbCommand);
+        }
+
+        public bool UpdateCategoryIndex(CategoryModel list)
+        {
+            Database db = new SqlDatabase(config);
+            DbCommand dbCommand = db.GetSqlStringCommand(SQLBase.SQL_Update_Category_Index);
+           
+                db.AddInParameter(dbCommand, "CategoryID", DbType.Int32, list.CategoryId);
+                db.AddInParameter(dbCommand, "Index", DbType.Int16, list.CurrentIndex);
+                db.ExecuteNonQuery(dbCommand);
+           
+           
+            return true;
+        }
+
+        public void UpdateThemeTrends(bool IsTrending ,int ThemeID)
+        {
+            Database db = new SqlDatabase(config);
+            DbCommand dbCommand = db.GetSqlStringCommand(SQLBase.SQL_Update_ThemeTrends);
+
+            db.AddInParameter(dbCommand, "IsTrending", DbType.Boolean, IsTrending);
+            db.AddInParameter(dbCommand, "ThemeID", DbType.Int32, ThemeID);
+            db.ExecuteNonQuery(dbCommand);
+
+
+            
         }
 
     }

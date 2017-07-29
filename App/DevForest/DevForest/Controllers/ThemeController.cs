@@ -101,7 +101,6 @@ namespace DevForest.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public JsonResult DeleteThemeByID(int ThemeId)
         {
             string res = obj.DeleteThemeById(ThemeId);
@@ -116,6 +115,16 @@ namespace DevForest.Controllers
                 System.IO.File.Delete(ThumbanailPath);
             }
             return Json(1, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult UpdateThemeTrends(bool IsTrend,int ThemeID)
+        {
+            DeveloperForest.BLL.Category obj = new DeveloperForest.BLL.Category();
+
+            obj.UpdateThemeTrends(IsTrend,ThemeID);
+
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
     }
 }
