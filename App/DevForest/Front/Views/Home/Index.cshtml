@@ -24,23 +24,23 @@
             @foreach (var item in Model.MainCategories)
             {
                 <li class="mainnav__list">
-                  
-                    
+
+
                     <a class="@(item.CurrentIndex==1?"mainnav__link active":"mainnav__link")" data-id="@item.CategoryId" trgt="#@item.CategoryName" href="javascript:void(0)">
                         <i class="mainnav__icon df @item.CSSClass"></i>
                         <span class="mainnav__text">@item.CategoryName</span>
                     </a>
                 </li>
             }
-           
-           
+
+
         </ul>
     </div>
 </div>
 
 <div class="subnav">
     <div class="container" id="subnav">
-        
-         
+
+
     </div>
 </div>
