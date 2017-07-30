@@ -20,5 +20,7 @@ namespace DevForest.Models
         public string SubCategoryName { get; set; }
 
         public SelectList CategoryList { get; set; }  
+
+        public string CSSClass { get; set; }
     }
 }

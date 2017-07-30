@@ -24,61 +24,16 @@
             @foreach (var item in Model.MainCategories)
             {
                 <li class="mainnav__list">
-                    <a class="mainnav__link" data-id="@item.CategoryId" trgt="#@item.CategoryName" href="javascript:void(0)">
+                  
+                    
+                    <a class="@(item.CurrentIndex==1?"mainnav__link active":"mainnav__link")" data-id="@item.CategoryId" trgt="#@item.CategoryName" href="javascript:void(0)">
                         <i class="mainnav__icon df @item.CSSClass"></i>
                         <span class="mainnav__text">@item.CategoryName</span>
                     </a>
                 </li>
             }
            
-            @*<li class="mainnav__list">
-                <a class="mainnav__link" href="javascript:void(0)">
-                    <i class="mainnav__icon df   df-psd"></i>
-                    <span class="mainnav__text">psd's</span>
-                </a>
-            </li>
-            <li class="mainnav__list">
-                <a class="mainnav__link" href="javascript:void(0)">
-                    <i class="mainnav__icon df  df-headphones"></i>
-                    <span class="mainnav__text">audios</span>
-                </a>
-            </li>
-            <li class="mainnav__list">
-                <a class="mainnav__link" href="javascript:void(0)">
-                    <i class="mainnav__icon df  df-video-camera"></i>
-                    <span class="mainnav__text">videos</span>
-                </a>
-            </li>
-            <li class="mainnav__list">
-                <a class="mainnav__link" href="javascript:void(0)">
-                    <i class="mainnav__icon df df-photo-camera-1"></i>
-                    <span class="mainnav__text">photos</span>
-                </a>
-            </li>
-            <li class="mainnav__list">
-                <a class="mainnav__link" href="javascript:void(0)">
-                    <i class="mainnav__icon df df-mindmap"></i>
-                    <span class="mainnav__text">graphics</span>
-                </a>
-            </li>
-            <li class="mainnav__list">
-                <a class="mainnav__link" href="javascript:void(0)">
-                    <i class="mainnav__icon df df-domain-registration"></i>
-                    <span class="mainnav__text">plugins</span>
-                </a>
-            </li>
-            <li class="mainnav__list">
-                <a class="mainnav__link" href="javascript:void(0)">
-                    <i class="mainnav__icon df df-stack"></i>
-                    <span class="mainnav__text">UI Kit</span>
-                </a>
-            </li>
-            <li class="mainnav__list">
-                <a class="mainnav__link" href="javascript:void(0)">
-                    <i class="mainnav__icon df df-programming-code"></i>
-                    <span class="mainnav__text">Jobs</span>
-                </a>
-            </li>*@
+           
         </ul>
     </div>
 </div>

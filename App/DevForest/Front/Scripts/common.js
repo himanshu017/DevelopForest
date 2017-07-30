@@ -1,8 +1,15 @@
 ﻿$(function () {
-
+    var trgts = $('.mainnav__link:eq(0)').attr('trgt');
+    var CategoryId = $('.mainnav__link:eq(0)').attr('data-id');
+    bindsubcategory(CategoryId);
     $('.mainnav__link').click(function () {
         var trgts = $(this).attr('trgt');
         var CategoryId = $(this).attr('data-id');
+        bindsubcategory(CategoryId);
+
+    });
+
+    function bindsubcategory(CategoryId) {
         $.ajax({
             cache: false,
             type: "POST",
@@ -16,7 +23,5 @@
                 alert('Failed to retrieve books.');
             }
         });  
-
-    });
-
+    }
 });
