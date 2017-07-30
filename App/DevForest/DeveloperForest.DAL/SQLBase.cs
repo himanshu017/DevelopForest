@@ -8,7 +8,7 @@ namespace DeveloperForest.DAL
 {
   public static  class SQLBase
     {
-      public static string SQL_GET_Categories = "Select CategoryId,CategoryName,CSSClass from MasterCategory order by isnull(CurrentIndex,0) asc";
+      public static string SQL_GET_Categories = "Select CategoryId,CategoryName,CSSClass,CurrentIndex from MasterCategory order by isnull(CurrentIndex,0) asc";
         public static string SQL_DeleteCategoriesByID = "Delete  from MasterCategory where CategoryId=@CategoryId";
         public static string SQL_GET_SubCategories = "Select SubCategoryID,SubCategoryName,CategoryId,(Select CategoryName from MasterCategory where CategoryId=MasterSubCategory.CategoryId) as CategoryName from MasterSubCategory order by SubCategoryID desc";
         public static string SQL_DeleteSubCategoriesById = "Delete from MasterSubCategory where SubCategoryID=@SubCategoryId";

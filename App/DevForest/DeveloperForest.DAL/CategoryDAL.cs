@@ -68,7 +68,8 @@ namespace DeveloperForest.DAL
             {
                 CategoryId = (Int32)row["CategoryId"],
                 CategoryName = String.IsNullOrEmpty(row.Field<string>("CategoryName")) ? "not found" : row.Field<string>("CategoryName"),
-                CSSClass= String.IsNullOrEmpty(row.Field<string>("CSSClass")) ? "" : row.Field<string>("CSSClass")
+                CSSClass= String.IsNullOrEmpty(row.Field<string>("CSSClass")) ? "" : row.Field<string>("CSSClass"),
+                CurrentIndex= (Int16)row["CurrentIndex"]
             }).ToList();
             return target;
         }
