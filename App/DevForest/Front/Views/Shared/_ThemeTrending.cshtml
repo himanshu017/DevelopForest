@@ -1,0 +1,22 @@
+﻿@model DeveloperForest.Model.ThemeModel
+
+@for (int i = 0; i < Model.ModelList.Count; i++)
+{
+<div class="containerItem">
+    <div class="itemthumb">
+        <img src="http://localhost:50609/Upload/Thumbnail/083298ca-0bba-483d-a7b1-f2e6a301bebb.jpg" />
+    </div>
+    <div class="itemdetail">
+        <a href="javascript:void(0)" class="thumblink">
+            <span class="thumblink__title">
+                @Model.ModelList[i].Title<span class="themetype new">
+                    <i class="df df-joined"></i> New
+                </span>
+            </span>
+            <span class="thumblink__text">Free Bootstrap Material Admin</span>
+        </a>
+        <a href="javascript:void(0)" class="costtheme">Free</a>
+    </div>
+
+</div>
+}

@@ -5,7 +5,7 @@
         @for (int i = 0; i < Model.ModelList.Count; i++)
         {
             <li class="subnav__list hoverdropdownlik">
-                <a class="subnav__link" href="javascript:void(0)">@Model.ModelList[i].SubCategoryName</a>
+                <a class="subnav__link" onclick="GetTheme(this)" data-id="@Model.ModelList[i].SubCategoryId" href="#">@Model.ModelList[i].SubCategoryName</a>
             </li>
         }
     </ul>

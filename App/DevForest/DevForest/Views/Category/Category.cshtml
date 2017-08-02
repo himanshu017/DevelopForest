@@ -65,12 +65,12 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label class="control-label">Category Name</label>
+                                    <label class="control-label">CSS Name</label>
                                     @Html.TextBoxFor(m => m.CSSClass, new { @class = "form-control", id = "txtCSSClass", placeholder = "css" })
                                 </div>
                             </div><!-- col-sm-6 -->
                         </div>
-                    <!-- row -->
+                        <!-- row -->
                     </div><!-- panel-body -->
                     <div class="panel-footer">
                         <div class="row">
@@ -147,7 +147,7 @@
     </div>
 </div>
 <script>
-    var UpdateIndexPath="@Url.Action("UpdateCategoryIndex", "Category")";
+    var UpdateIndexPath = "@Url.Action("UpdateCategoryIndex", "Category")";
     function responseHandler(res) {
         //$.each(res.rows, function (i, row) {
         //    row.state = $.inArray(row.id, selections) !== -1;
@@ -171,6 +171,8 @@
         'click .like': function (e, value, row, index) {
             $('#txtCategoryName').val(row.CategoryName);
             $('#CategoryId').val(row.CategoryId);
+            $('#txtCSSClass').val(row.CSSClass);
+            window.scrollTo(0, 92)
             //alert('You click like action, row: ' + JSON.stringify(row));
         },
         'click .remove': function (e, value, row, index) {

@@ -20,5 +20,7 @@ namespace DeveloperForest.IDAL
 
         bool UpdateCategoryIndex(CategoryModel list);
         void UpdateThemeTrends(bool IsTrending, int ThemeID);
+
+        bool UpdateSubCategoryIndex(CategoryModel list);
     }
 }

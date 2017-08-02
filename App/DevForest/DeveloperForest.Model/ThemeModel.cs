@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace DeveloperForest.Model
 {
-    public class ThemeModel:Base
+    public class ThemeModel : Base
     {
         public int ThemeId { get; set; }
         public int CategoryId { get; set; }
@@ -21,6 +21,8 @@ namespace DeveloperForest.Model
         public string Downloadlink { get; set; }
         public string DemoLink { get; set; }
 
+        public bool IsTrending { get; set; }
 
+        public List<ThemeModel> ModelList { get; set; }
     }
 }

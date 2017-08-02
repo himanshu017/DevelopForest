@@ -36,8 +36,6 @@ namespace DevForest.Controllers
             model.ImageName.SaveAs(image);
             var ThumbnailImage = Path.Combine(Server.MapPath("~/Upload/Thumbnail/"), fileName);
             model.ImageName.SaveAs(ThumbnailImage);
-
-
             obj.InsertTheme(model, fileName);
             return RedirectToAction("ThemeList");
         }

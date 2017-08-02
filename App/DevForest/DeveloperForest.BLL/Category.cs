@@ -64,5 +64,18 @@ namespace DeveloperForest.BLL
             ICategoryDAL obj = new CategoryDAL();
             obj.UpdateThemeTrends(IsTrending, ThemeID);
         }
+        public bool UpdateSubCategoryIndex(List<CategoryModel> list)
+        {
+            IDAL.ICategoryDAL obj = new CategoryDAL();
+            for (Int16 i = 0; i < list.Count; i++)
+            {
+                int j = i;
+                CategoryModel model = new CategoryModel();
+                model.SubCategoryId = list[i].SubCategoryId;
+                model.CurrentIndex = Convert.ToInt16(j + 1);
+                obj.UpdateSubCategoryIndex(model);
+            }
+            return true;
+        }
     }
 }

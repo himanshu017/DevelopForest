@@ -93,7 +93,8 @@ namespace DeveloperForest.DAL
                 SubCategoryId = (Int32)row["SubCategoryID"],
                 SubCategoryName = String.IsNullOrEmpty(row.Field<string>("SubCategoryName")) ? "not found" : row.Field<string>("SubCategoryName"),
                 CategoryId = (Int32)row["CategoryId"],
-                CategoryName = String.IsNullOrEmpty(row.Field<string>("CategoryName")) ? "not found" : row.Field<string>("CategoryName")
+                CategoryName = String.IsNullOrEmpty(row.Field<string>("CategoryName")) ? "not found" : row.Field<string>("CategoryName"),
+                CurrentIndex = (Int16)row["CurrentIndex"]
             }).ToList();
             return SubCategoryList;
         }
@@ -114,8 +115,6 @@ namespace DeveloperForest.DAL
                 db.AddInParameter(dbCommand, "CategoryID", DbType.Int32, list.CategoryId);
                 db.AddInParameter(dbCommand, "Index", DbType.Int16, list.CurrentIndex);
                 db.ExecuteNonQuery(dbCommand);
-           
-           
             return true;
         }
 
@@ -127,10 +126,17 @@ namespace DeveloperForest.DAL
             db.AddInParameter(dbCommand, "IsTrending", DbType.Boolean, IsTrending);
             db.AddInParameter(dbCommand, "ThemeID", DbType.Int32, ThemeID);
             db.ExecuteNonQuery(dbCommand);
-
-
-            
         }
 
+        public bool UpdateSubCategoryIndex(CategoryModel list)
+        {
+            Database db = new SqlDatabase(config);
+            DbCommand dbCommand = db.GetSqlStringCommand(SQLBase.SQL_Update_SubCategory_Index);
+
+            db.AddInParameter(dbCommand, "SubCategoryID", DbType.Int32, list.SubCategoryId);
+            db.AddInParameter(dbCommand, "Index", DbType.Int16, list.CurrentIndex);
+            db.ExecuteNonQuery(dbCommand);
+            return true;
+        }
     }
 }
