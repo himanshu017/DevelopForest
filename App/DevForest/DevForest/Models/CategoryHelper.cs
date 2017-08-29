@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using DeveloperForest.BLL;
 using DeveloperForest.Model;
-
+using AutoMapper;
 namespace DevForest.Models
 {
     public class CategoryHelper
@@ -12,6 +12,16 @@ namespace DevForest.Models
         public int InsertCategory(CategoryModel model)
         {
             DeveloperForest.Model.CategoryModel ob = new DeveloperForest.Model.CategoryModel();
+
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<CategoryModel, DeveloperForest.Model.CategoryModel>();
+                cfg.CreateMap<DeveloperForest.Model.CategoryModel, CategoryModel>();
+            });
+
+            DeveloperForest.Model.CategoryModel userModel = Mapper.Map<CategoryModel, DeveloperForest.Model.CategoryModel>(model);
+            
+
             ob.CategoryName = model.CategoryName;
             ob.CategoryId = model.CategoryId;
             ob.CreatedBy = model.CreatedBy;

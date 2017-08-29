@@ -3,7 +3,6 @@
     ViewBag.Title = "Theme";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Styles.Render("~/Content/css")
 @Scripts.Render("~/bundles/jquery")
 <style>
     .field-validation-error {
@@ -131,6 +130,7 @@
                                         </div>
                                     </div><!-- panel-body -->
                                     <div class="panel-footer">
+                                        @Html.HiddenFor(m=>m.PreImageName)
                                         @Html.HiddenFor(m => m.ThemeId, new { value = "0" })
                                         <button class="btn btn-primary">Submit</button>
                                     </div>
@@ -149,6 +149,7 @@
 
     function GetSubCategoryList(ctrl,idx) {
         var CategoryId = $('#ddlCategory').val();
+        
         var url = "@Url.Action("GetSubCategories", "Theme")"
         if (CategoryId != 0) {
             $.ajax({
@@ -210,6 +211,7 @@
                     $('#txtDemoLink').val(data.DemoLink);
                     $('#txtDescription').val(data.Description);
                     $('#ThemeId').val(ThemeId);
+                    $('#PreImageName').val(data.PreImageName);
                     //$('#txtThumbnailImage').val(data.ImageName);
                     //$('#txtImage').val(data.ImageName);
                     GetSubCategoryList("",data.SubCategoryId);

@@ -1,0 +1,12 @@
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\bin\Release\DeveloperForest.DAL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\bin\Release\DeveloperForest.DAL.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\bin\Release\DeveloperForest.IDAL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\bin\Release\DeveloperForest.Model.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\bin\Release\ENCDEC.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\bin\Release\DeveloperForest.IDAL.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\bin\Release\DeveloperForest.Model.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\obj\Release\DeveloperForest.DAL.csprojResolveAssemblyReference.cache
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\obj\Release\DeveloperForest.DAL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.DAL\obj\Release\DeveloperForest.DAL.pdb

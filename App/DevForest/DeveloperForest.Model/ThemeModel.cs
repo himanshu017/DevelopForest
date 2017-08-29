@@ -24,5 +24,6 @@ namespace DeveloperForest.Model
         public bool IsTrending { get; set; }
 
         public List<ThemeModel> ModelList { get; set; }
+        public string PreImageName { get; set; }
     }
 }

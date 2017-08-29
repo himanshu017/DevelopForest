@@ -19,7 +19,7 @@ namespace DevForest.Controllers
             ob.CategoryList = new SelectList(obj.GetCategories(), "CategoryId", "CategoryName");
             return View(ob);
         }
-
+        [HttpPost]
         public ActionResult GetSubCategories(int id)
         {
             CategoryHelper obj = new CategoryHelper();
@@ -30,8 +30,15 @@ namespace DevForest.Controllers
         [AllowAnonymous]
         public ActionResult InsertTheme(ThemeModel model)
         {
-            Guid g = Guid.NewGuid();
-            string fileName = g.ToString() + ".jpg";
+            string fileName = "";
+            if (string.IsNullOrEmpty(model.PreImageName))
+            {
+                Guid g = Guid.NewGuid();
+                 fileName = g.ToString() + ".jpg";
+            }
+            else
+            fileName = model.PreImageName;
+
             var image = Path.Combine(Server.MapPath("~/Upload/"), fileName);
             model.ImageName.SaveAs(image);
             var ThumbnailImage = Path.Combine(Server.MapPath("~/Upload/Thumbnail/"), fileName);

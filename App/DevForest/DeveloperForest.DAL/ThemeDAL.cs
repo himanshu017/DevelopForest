@@ -51,15 +51,16 @@ namespace DeveloperForest.DAL
             List<ThemeModel> ThemeList = dt.AsEnumerable().Select(row => new ThemeModel
             {
                 ThemeId = (Int32)row["ThemeId"],
-                Title = String.IsNullOrEmpty(row.Field<string>("Title")) ? "not found" : row.Field<string>("Title"),
-                CategoryName = String.IsNullOrEmpty(row.Field<string>("CategoryName")) ? "not found" : row.Field<string>("CategoryName"),
-                SubCategoryName = String.IsNullOrEmpty(row.Field<string>("SubCategoryName")) ? "not found" : row.Field<string>("SubCategoryName"),
+                Title = String.IsNullOrEmpty(row.Field<string>("Title")) ? "" : row.Field<string>("Title"),
+                CategoryName = String.IsNullOrEmpty(row.Field<string>("CategoryName")) ? "" : row.Field<string>("CategoryName"),
+                SubCategoryName = String.IsNullOrEmpty(row.Field<string>("SubCategoryName")) ? "" : row.Field<string>("SubCategoryName"),
                 CategoryId = (Int32)row["CategoryId"],
                 SubCategoryId = (Int32)row["SubCategoryId"],
-                DemoLink = String.IsNullOrEmpty(row.Field<string>("DemoLink")) ? "not found" : row.Field<string>("DemoLink"),
-                Downloadlink = String.IsNullOrEmpty(row.Field<string>("DownloadLink")) ? "not found" : row.Field<string>("DownloadLink"),
-                Description = String.IsNullOrEmpty(row.Field<string>("Description")) ? "not found" : row.Field<string>("Description"),
-                ImageName = String.IsNullOrEmpty(row.Field<string>("ImageName")) ? "not found" : row.Field<string>("ImageName"),
+                DemoLink = String.IsNullOrEmpty(row.Field<string>("DemoLink")) ? "" : row.Field<string>("DemoLink"),
+                Downloadlink = String.IsNullOrEmpty(row.Field<string>("DownloadLink")) ? "" : row.Field<string>("DownloadLink"),
+                Description = String.IsNullOrEmpty(row.Field<string>("Description")) ? "" : row.Field<string>("Description"),
+                ImageName = String.IsNullOrEmpty(row.Field<string>("ImageName")) ? "" : row.Field<string>("ImageName"),
+                PreImageName = String.IsNullOrEmpty(row.Field<string>("ImageName")) ? "" : row.Field<string>("ImageName"),
             }).ToList();
             return ThemeList;
         }

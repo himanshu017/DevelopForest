@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -15,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DevForest</RootNamespace>
     <AssemblyName>DevForest</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -25,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +34,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,25 +44,24 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="AutoMapper">
+      <HintPath>..\Front\bin\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
@@ -102,6 +102,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -158,58 +159,58 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\css\bootstrap-table-reorder-rows.css" />
-    <Content Include="Content\css\bootstrap-table.css" />
+    <Content Include="Content\maincss\bootstrap-table-reorder-rows.css" />
+    <Content Include="Content\maincss\bootstrap-table.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\css\animate.delay.css" />
-    <Content Include="Content\css\animate.min.css" />
-    <Content Include="Content\css\bootstrap-editable.css" />
-    <Content Include="Content\css\bootstrap-override-rtl.css" />
-    <Content Include="Content\css\bootstrap-override.css" />
-    <Content Include="Content\css\bootstrap-rtl.min.css" />
-    <Content Include="Content\css\bootstrap-timepicker.min.css" />
-    <Content Include="Content\css\bootstrap-wysihtml5.css" />
-    <Content Include="Content\css\bootstrap.css" />
-    <Content Include="Content\css\bootstrap.min.css" />
-    <Content Include="Content\css\codemirror\codemirror.css" />
-    <Content Include="Content\css\codemirror\index.html" />
-    <Content Include="Content\css\codemirror\theme\ambiance.css" />
-    <Content Include="Content\css\codemirror\theme\index.html" />
-    <Content Include="Content\css\colorpicker.css" />
-    <Content Include="Content\css\dropzone.css" />
-    <Content Include="Content\css\font-awesome.css" />
-    <Content Include="Content\css\font-awesome.min.css" />
-    <Content Include="Content\css\font.helvetica-neue.css" />
-    <Content Include="Content\css\font.roboto.css" />
-    <Content Include="Content\css\fullcalendar.css" />
-    <Content Include="Content\css\index.html" />
-    <Content Include="Content\css\jquery-jvectormap-1.2.2.css" />
-    <Content Include="Content\css\jquery-ui-1.10.3.css" />
-    <Content Include="Content\css\jquery.datatables.css" />
-    <Content Include="Content\css\jquery.gritter.css" />
-    <Content Include="Content\css\jquery.tagsinput.css" />
-    <Content Include="Content\css\lato.css" />
-    <Content Include="Content\css\loading-bar.css" />
-    <Content Include="Content\css\loading-bar.min.css" />
-    <Content Include="Content\css\morris.css" />
-    <Content Include="Content\css\ng-table.css" />
-    <Content Include="Content\css\ng-table.min.css" />
-    <Content Include="Content\css\prettyPhoto.css" />
-    <Content Include="Content\css\roboto.css" />
-    <Content Include="Content\css\select2.css" />
-    <Content Include="Content\css\style.bluenav.css" />
-    <Content Include="Content\css\style.darkknight.css" />
-    <Content Include="Content\css\style.default-rtl.css" />
-    <Content Include="Content\css\style.default.css" />
-    <Content Include="Content\css\style.dodgerblue.css" />
-    <Content Include="Content\css\style.dodgerblueNew.css" />
-    <Content Include="Content\css\style.greyjoy.css" />
-    <Content Include="Content\css\style.inverse.css" />
-    <Content Include="Content\css\style.katniss.css" />
-    <Content Include="Content\css\toggles.css" />
-    <Content Include="Content\css\weather-icons.min.css" />
-    <Content Include="Content\css\wysiwyg-color.css" />
+    <Content Include="Content\maincss\animate.delay.css" />
+    <Content Include="Content\maincss\animate.min.css" />
+    <Content Include="Content\maincss\bootstrap-editable.css" />
+    <Content Include="Content\maincss\bootstrap-override-rtl.css" />
+    <Content Include="Content\maincss\bootstrap-override.css" />
+    <Content Include="Content\maincss\bootstrap-rtl.min.css" />
+    <Content Include="Content\maincss\bootstrap-timepicker.min.css" />
+    <Content Include="Content\maincss\bootstrap-wysihtml5.css" />
+    <Content Include="Content\maincss\bootstrap.css" />
+    <Content Include="Content\maincss\bootstrap.min.css" />
+    <Content Include="Content\maincss\codemirror\codemirror.css" />
+    <Content Include="Content\maincss\codemirror\index.html" />
+    <Content Include="Content\maincss\codemirror\theme\ambiance.css" />
+    <Content Include="Content\maincss\codemirror\theme\index.html" />
+    <Content Include="Content\maincss\colorpicker.css" />
+    <Content Include="Content\maincss\dropzone.css" />
+    <Content Include="Content\maincss\font-awesome.css" />
+    <Content Include="Content\maincss\font-awesome.min.css" />
+    <Content Include="Content\maincss\font.helvetica-neue.css" />
+    <Content Include="Content\maincss\font.roboto.css" />
+    <Content Include="Content\maincss\fullcalendar.css" />
+    <Content Include="Content\maincss\index.html" />
+    <Content Include="Content\maincss\jquery-jvectormap-1.2.2.css" />
+    <Content Include="Content\maincss\jquery-ui-1.10.3.css" />
+    <Content Include="Content\maincss\jquery.datatables.css" />
+    <Content Include="Content\maincss\jquery.gritter.css" />
+    <Content Include="Content\maincss\jquery.tagsinput.css" />
+    <Content Include="Content\maincss\lato.css" />
+    <Content Include="Content\maincss\loading-bar.css" />
+    <Content Include="Content\maincss\loading-bar.min.css" />
+    <Content Include="Content\maincss\morris.css" />
+    <Content Include="Content\maincss\ng-table.css" />
+    <Content Include="Content\maincss\ng-table.min.css" />
+    <Content Include="Content\maincss\prettyPhoto.css" />
+    <Content Include="Content\maincss\roboto.css" />
+    <Content Include="Content\maincss\select2.css" />
+    <Content Include="Content\maincss\style.bluenav.css" />
+    <Content Include="Content\maincss\style.darkknight.css" />
+    <Content Include="Content\maincss\style.default-rtl.css" />
+    <Content Include="Content\maincss\style.default.css" />
+    <Content Include="Content\maincss\style.dodgerblue.css" />
+    <Content Include="Content\maincss\style.dodgerblueNew.css" />
+    <Content Include="Content\maincss\style.greyjoy.css" />
+    <Content Include="Content\maincss\style.inverse.css" />
+    <Content Include="Content\maincss\style.katniss.css" />
+    <Content Include="Content\maincss\toggles.css" />
+    <Content Include="Content\maincss\weather-icons.min.css" />
+    <Content Include="Content\maincss\wysiwyg-color.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -479,7 +480,8 @@
     <Content Include="fonts\weathericons-regular-webfont.woff" />
     <Content Include="images\colorpicker\.DS_Store" />
     <Content Include="images\colorpicker\Thumbs.db" />
-    <Content Include="Content\css\ng-table.less" />
+    <Content Include="Content\maincss\ng-table.less" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -552,7 +554,9 @@
     <Content Include="Scripts\script\select2.min.js" />
     <Content Include="Scripts\script\toggles.min.js" />
     <Content Include="Scripts\script\wysihtml5-0.3.0.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -641,7 +645,6 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

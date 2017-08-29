@@ -1,0 +1,14 @@
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Release\DeveloperForest.BLL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Release\DeveloperForest.BLL.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Release\DeveloperForest.DAL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Release\DeveloperForest.IDAL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Release\DeveloperForest.Model.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Release\ENCDEC.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Release\DeveloperForest.DAL.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Release\DeveloperForest.IDAL.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\bin\Release\DeveloperForest.Model.pdb
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\obj\Release\DeveloperForest.BLL.csprojResolveAssemblyReference.cache
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\obj\Release\DeveloperForest.BLL.dll
+D:\Projects\Working_17\GitHub\DevelopForest\App\DevForest\DeveloperForest.BLL\obj\Release\DeveloperForest.BLL.pdb

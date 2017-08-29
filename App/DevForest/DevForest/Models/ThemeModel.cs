@@ -36,5 +36,13 @@ namespace DevForest.Models
         public string DemoLink { get; set; }
         public SelectList CategoryList { get; set; }
         public SelectList SubCategoryList { get; set; }
+
+        public string PreImageName { get; set; }
+
+        public string RelatedLink1 { get; set; }
+        public string RelatedLink2 { get; set; }
+        public string RelatedLink3 { get; set; }
+        public string RelatedLink4 { get; set; }
+        public string RelatedLink5 { get; set; }
     }
 }

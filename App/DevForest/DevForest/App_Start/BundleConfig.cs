@@ -23,8 +23,8 @@ namespace DevForest
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                       "~/Content/css/style.default.css"
+            bundles.Add(new StyleBundle("~/Content/maincss").Include(
+                       "~/Content/maincss/style.default.css"
                        ));
 
 
@@ -43,7 +43,7 @@ namespace DevForest
                   ));
 
             bundles.Add(new StyleBundle("~/Content/theme").Include(
-                   "~/Content/css/style.greyjoy.css"
+                   "~/Content/maincss/style.greyjoy.css"
                    ));
 
             bundles.Add(new ScriptBundle("~/bundles/BootstrapTable").Include(
@@ -52,7 +52,7 @@ namespace DevForest
                   ));
 
             bundles.Add(new StyleBundle("~/Content/BootstarpTableCSS").Include(
-                  "~/Content/css/bootstrap-table.css"
+                  "~/Content/maincss/bootstrap-table.css"
                   ));
 
         }
