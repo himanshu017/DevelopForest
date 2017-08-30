@@ -128,9 +128,53 @@
                                                 </div>
                                             </div><!-- col-sm-6 -->
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">RelatedLink1</label>
+                                                    @Html.TextBoxFor(m => m.RelatedLink1, new { @class = "form-control", id = "txtRelatedLink1", placeholder = "RelatedLink-1" })
+                                                    
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">RelatedLink2</label>
+                                                    @Html.TextBoxFor(m => m.RelatedLink2, new { @class = "form-control", id = "txtRelatedLink2", placeholder = "RelatedLink-2" })
+                                                    
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">RelatedLink3</label>
+                                                    @Html.TextBoxFor(m => m.RelatedLink3, new { @class = "form-control", id = "txtRelatedLink3", placeholder = "RelatedLink-3" })
+                                                    
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">RelatedLink4</label>
+                                                    @Html.TextBoxFor(m => m.RelatedLink4, new { @class = "form-control", id = "txtRelatedLink4", placeholder = "RelatedLink-4" })
+                                                    
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label class="control-label">RelatedLink5</label>
+                                                    @Html.TextBoxFor(m => m.RelatedLink5, new { @class = "form-control", id = "txtRelatedLink5", placeholder = "RelatedLink-5" })
+                                                    
+                                                </div>
+                                            </div><!-- col-sm-6 -->
+                                        </div>
                                     </div><!-- panel-body -->
                                     <div class="panel-footer">
-                                        @Html.HiddenFor(m=>m.PreImageName)
+                                        @Html.HiddenFor(m => m.PreImageName)
                                         @Html.HiddenFor(m => m.ThemeId, new { value = "0" })
                                         <button class="btn btn-primary">Submit</button>
                                     </div>
@@ -147,15 +191,15 @@
 
 <script>
 
-    function GetSubCategoryList(ctrl,idx) {
+    function GetSubCategoryList(ctrl, idx) {
         var CategoryId = $('#ddlCategory').val();
-        
+
         var url = "@Url.Action("GetSubCategories", "Theme")"
         if (CategoryId != 0) {
             $.ajax({
                 type: "post",
                 contentType: "application/json; charset=utf-8",
-                url:url,
+                url: url,
                 data: "{'id':'" + CategoryId + "'}",
                 success: function (data) {
                     $('#ddlSubCategory option').not(':first').remove();
@@ -212,9 +256,12 @@
                     $('#txtDescription').val(data.Description);
                     $('#ThemeId').val(ThemeId);
                     $('#PreImageName').val(data.PreImageName);
-                    //$('#txtThumbnailImage').val(data.ImageName);
-                    //$('#txtImage').val(data.ImageName);
-                    GetSubCategoryList("",data.SubCategoryId);
+                    $('#txtRelatedLink1').val(data.RelatedLink1);
+                    $('#txtRelatedLink2').val(data.RelatedLink2);
+                    $('#txtRelatedLink3').val(data.RelatedLink3);
+                    $('#txtRelatedLink4').val(data.RelatedLink4);
+                    $('#txtRelatedLink5').val(data.RelatedLink5);
+                    GetSubCategoryList("", data.SubCategoryId);
 
 
                 },
