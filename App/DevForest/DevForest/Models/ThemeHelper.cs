@@ -23,6 +23,11 @@ namespace DevForest.Models
             obj.CreatedBy = model.UserID;
             obj.ModifiedBy = model.UserID;
             obj.ImageName = ImageName;
+            obj.RelatedLink1 = model.RelatedLink1;
+            obj.RelatedLink2 = model.RelatedLink2;
+            obj.RelatedLink3 = model.RelatedLink3;
+            obj.RelatedLink4 = model.RelatedLink4;
+            obj.RelatedLink5 = model.RelatedLink5;
             return objBLL.InsertTheme(obj);
         }
 
