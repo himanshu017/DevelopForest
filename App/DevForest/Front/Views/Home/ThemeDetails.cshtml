@@ -1,49 +1,14 @@
-﻿@model Front.Models.Header
+﻿@model DeveloperForest.Model.ThemeModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "ThemeDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<style type="text/css">
-    .subnav__boxcon {
-        display: none;
-    }
-
-    .subnav {
-        height: 56px;
-    }
-</style>
-
-
 <script src="~/Scripts/common.js"></script>
 <script type="text/javascript">
     var SubPath = '@Url.Action("GETSubCategoriesMenu", "Home")';
     var ThemePath = '@Url.Action("GetThemeLatest", "Home")';
     var ThemeRelated = '@Url.Action("GetThemeRelated", "Home")';
 </script>
-
-<div class="mainnav">
-    <div class="container">
-        <ul class="mainnav-row">
-            @foreach (var item in Model.MainCategories)
-            {
-                <li class="mainnav__list">
-
-
-                    <a class="@(item.CurrentIndex==1?"mainnav__link active":"mainnav__link")" data-id="@item.CategoryId" trgt="#@item.CategoryName" href="javascript:void(0)">
-                        <i class="mainnav__icon df @item.CSSClass"></i>
-                        <span class="mainnav__text">@item.CategoryName</span>
-                    </a>
-                </li>
-            }
-        </ul>
-    </div>
-</div>
-
-<div class="subnav">
-    <div class="container" id="subnav">
-
-
-    </div>
-</div>
 
 <section class="bannerbox">
 
@@ -60,30 +25,50 @@
 <div class="detailscon container">
     <div class="solutiondetail">
         <div class="solution__left">
-            <div class="mainheading">Latest Themes</div>
-            <div class="conatinerBox" id="ThemeLatest">
+            <div class="mainheading">@Model.Title</div>
+            <div class="detailbox">
+                <div class="detailItem">
+                    <div class="detailItems">
+                        <div class="sharebutton">
+                            <div class="card--signup__social">
+                                <a href="javascript:void(0)" class="card--signup__social--item fb"><i class="df  df-FB"></i></a>
+                                <a href="javascript:void(0)" class="card--signup__social--item tw bigicon"><i class="df   df-twitter3"></i></a>
+                                <a href="javascript:void(0)" class="card--signup__social--item gplus"><i class="df df-GooglePlus"></i></a>
+                            </div>
+                        </div>
+                        <div class="detailImage">
+                            <img src="@Model.BaseURL/Upload/Thumbnail/@Model.ImageName">
+                            @*<img src="http://localhost:50609/Upload/Thumbnail/083298ca-0bba-483d-a7b1-f2e6a301bebb.jpg">*@
+                        </div>
+                    </div>
+                    <div class="downloadlinks">
+                        <div class="downloadbtn">
+                            <a href="@Model.DemoLink" class="button-default">Demo</a>
+                            <a href="@Model.DemoLink" class="button-default">Download</a>
+                        </div>
+                        <div class="addleft"><img src="http://localhost:50609/Upload/Thumbnail/083298ca-0bba-483d-a7b1-f2e6a301bebb.jpg "></div>
+                    </div>
+                    <div class="fileType">
+                        <p><span>File Size:</span>  32.6 KB</p>
+                        <p><span>Views Total:</span>    511</p>
+                        <p><span>Last Update:</span>    9 days ago</p>
+                        <p><span>Publish Date:</span>   2 months ago</p>
+                        <p><span>Official Website:</span>   Go to website</p>
+                        <p><span>License:</span>    MIT</p>
+                    </div>
+                </div>
 
+                <div class="themedesc">
+                    @Model.Description
+                </div>
+                <div class="banneradd"><img src="assets/img/a7.png"></div>
+                <div class="mainheading">Related Themes</div>
+                <div class="conatinerBox" id="ThemeRelated">
+
+                </div>
 
             </div>
-            <div class="buttongroup">
-                <a class="button-default">View All</a>
-            </div>
-            <div class="mainheading">Trending Themes</div>
-            <div class="conatinerBox" id="ThemeTrending">
 
-
-            </div>
-            <div class="buttongroup">
-                <a class="button-default">View All</a>
-            </div>
-            <div class="mainheading">Related Themes</div>
-            <div class="conatinerBox" id="ThemeRelated">
-                
-                
-            </div>
-            <div class="buttongroup">
-                <a class="button-default">View All</a>
-            </div>
 
         </div>
         <div class="solution__right">
