@@ -7,7 +7,7 @@
         <img src="http://localhost:50609/Upload/Thumbnail/083298ca-0bba-483d-a7b1-f2e6a301bebb.jpg" />
     </div>
     <div class="itemdetail">
-        <a href="javascript:void(0)" class="thumblink">
+        <a href="@Url.Action("ThemeDetails", "Home", new { ThemeId = @Model.ModelList[i].ThemeId, SubId = @Model.ModelList[i].SubCategoryId })" class="thumblink">
             <span class="thumblink__title">
                 @Model.ModelList[i].Title<span class="themetype new">
                     <i class="df df-joined"></i> New
