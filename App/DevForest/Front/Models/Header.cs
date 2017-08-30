@@ -31,7 +31,7 @@ namespace Front.Models
             return sb.ToString();
         }
 
-        public CategoryModel SubCategoriesByID(int categoryid)
+        public CategoryModel SubCategoriesByID(int? categoryid)
         {
             Category obj = new Category();
             List<CategoryModel> list = obj.GetSubCategories();
